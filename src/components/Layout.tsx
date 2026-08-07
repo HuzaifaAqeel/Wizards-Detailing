@@ -18,7 +18,9 @@ function Header() {
   return <>
     <header className={`header ${scrolled ? 'scrolled' : ''}`} data-testid="header-site">
       <div className="container-wide nav-inner">
-        <Link href="/" className="wordmark" data-testid="link-logo"><span className="wordmark-mark">W</span><span className="wordmark-text">Wizard’s<br />Auto Detailing</span></Link>
+        <Link href="/" className="wordmark" data-testid="link-logo">
+          <img src="/logo.png" alt="Wizard's Auto Detailing" className="h-12 md:h-16 w-auto object-contain" />
+        </Link>
         <nav className="nav-links" aria-label="Main navigation">{nav.map(([label, href]) => <Link key={href} href={href} className="nav-link" data-testid={`link-nav-${label.toLowerCase()}`}>{label}</Link>)}</nav>
         <div className="header-actions">
           <a className="instagram-link" href={instagram} target="_blank" rel="noreferrer" aria-label="Open Instagram" data-testid="link-instagram-header"><Instagram size={16} /></a>
