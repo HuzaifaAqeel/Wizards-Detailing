@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Wizard’s Auto Detailing"
+description = "A premium mobile auto detailing website for Wizard’s Auto Detailing, serving Montreal and surrounding areas with interior and exterior detailing, polishing, ceramic coating, gallery storytelling, and appointment requests."
+version = "1.0.0"
+id = "artifacts/wizards-auto-detailing"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19120
+
+[services.development]
+run = "pnpm --filter @workspace/wizards-auto-detailing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/wizards-auto-detailing", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/wizards-auto-detailing/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19120"
+BASE_PATH = "/"

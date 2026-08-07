@@ -1,0 +1,1 @@
+- [OpenAPI Zod generation](orval-zod-compatibility.md) — Orval Zod output must be pinned to the workspace runtime major when generator auto-detection targets newer syntax.
